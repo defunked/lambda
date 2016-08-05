@@ -1,0 +1,23 @@
+{
+  "name": "lambda",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "a.grigoriev <a.greegoriev@gmail.com> (http://github.com/defunked)"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "normalize-css": "^4.2.0",
+    "bourbon": "^4.2.7",
+    "neat": "^1.8.0"
+  }
+}
