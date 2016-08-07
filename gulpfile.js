@@ -1,4 +1,5 @@
 var gulp       = require('gulp'), // Подключаем Gulp
+	pug					 = require('gulp-pug'), //Подключаем Pug
 	sass         = require('gulp-sass'), //Подключаем Sass пакет,
 	browserSync  = require('browser-sync'), // Подключаем Browser Sync
 	concat       = require('gulp-concat'), // Подключаем gulp-concat (для конкатенации файлов)
@@ -11,7 +12,17 @@ var gulp       = require('gulp'), // Подключаем Gulp
 	cache        = require('gulp-cache'), // Подключаем библиотеку кеширования
 	autoprefixer = require('gulp-autoprefixer');// Подключаем библиотеку для автоматического добавления префиксов
 
-gulp.task('sass', function(){ // Создаем таск Sass
+gulp.task('pug', function() {
+  return gulp.src('app/templates/*.pug')
+    .pipe(pug({
+  		pretty: true
+		}))
+    .pipe(gulp.dest('app/')) // указываем gulp куда положить скомпилированные HTML файлы
+		.pipe(browserSync.reload(
+		 	{stream: true})) // Обновляем CSS на странице при изменении
+});
+
+gulp.task('sass', function() { // Создаем таск Sass
 	return gulp.src([	'app/sass/**/*.+(scss|sass)']) // Берем источник
 		.pipe(sass()) // Преобразуем Sass в CSS посредством gulp-sass
 		.pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })) // Создаем префиксы
@@ -48,6 +59,7 @@ gulp.task('css-libs', ['sass'], function() {
 gulp.task('watch', ['browser-sync', 'css-libs', 'scripts'], function() {
 	gulp.watch('app/sass/**/*.+(scss|sass)', ['sass']); // Наблюдение за sass файлами в папке sass
 	gulp.watch('app/*.html', browserSync.reload); // Наблюдение за HTML файлами в корне проекта
+	gulp.watch('app/templates/*.pug)', ['pug']); // Наблюдение за jade файлами в папке templates
 	gulp.watch('app/js/**/*.js', browserSync.reload);   // Наблюдение за JS файлами в папке js
 });
 
@@ -66,7 +78,7 @@ gulp.task('img', function() {
 		.pipe(gulp.dest('dist/img')); // Выгружаем на продакшен
 });
 
-gulp.task('build', ['clean', 'img', 'sass', 'scripts'], function() {
+gulp.task('build', ['clean', 'img', 'sass', 'pug', 'scripts'], function() {
 
 	var buildCss = gulp.src([ // Переносим библиотеки в продакшен
 		'app/css/main.css',

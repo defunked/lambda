@@ -17,6 +17,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-cssnano": "^2.1.2",
     "gulp-imagemin": "^3.0.2",
+    "gulp-pug": "^3.0.4",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-uglifyjs": "^0.6.2",
