@@ -1,1 +1,3 @@
 https://github.com/Browsersync/recipes/tree/master/recipes/gulp.jade
+
+https://canonium.com/articles/pug-incremental-compiling
