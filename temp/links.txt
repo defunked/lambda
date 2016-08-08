@@ -1,3 +1,20 @@
+Настройка Browser Sync + Sass + Pug/Jade
 https://github.com/Browsersync/recipes/tree/master/recipes/gulp.jade
 
+Оптимизация компиляции Pug/Jade
 https://canonium.com/articles/pug-incremental-compiling
+
+Шпаргалка по Git
+https://github.com/nicothin/web-development/tree/master/git
+
+Сайт Николая Громова (автор видео по Фотошоп для Html Academy)
+http://nicothin.pro/
+
+Бесплатный хостинг
+https://toster.ru/q/343039
+
+про фриланс
+https://toster.ru/q/342078
+
+загрузка шрифта
+http://glivera-team.github.io/fonts/2016/03/02/fonts.html
