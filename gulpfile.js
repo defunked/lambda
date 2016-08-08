@@ -12,14 +12,18 @@ var gulp       = require('gulp'), // Подключаем Gulp
 	cache        = require('gulp-cache'), // Подключаем библиотеку кеширования
 	autoprefixer = require('gulp-autoprefixer');// Подключаем библиотеку для автоматического добавления префиксов
 
+// var path = {
+// 	  jade: 'app/jade/**/*.jade',
+// 	  html: 'app/*.html'
+// 	};
+
 gulp.task('pug', function() {
-  return gulp.src('app/templates/*.pug')
+  return gulp.src('app/templates/**/*.pug')
     .pipe(pug({
   		pretty: true
 		}))
-    .pipe(gulp.dest('app/')) // указываем gulp куда положить скомпилированные HTML файлы
-		.pipe(browserSync.reload(
-		 	{stream: true})) // Обновляем CSS на странице при изменении
+    .pipe(gulp.dest('app')) // указываем gulp куда положить скомпилированные HTML файлы
+		// .pipe(browserSync.reload({stream: true})) // Обновляем CSS на странице при изменении
 });
 
 gulp.task('sass', function() { // Создаем таск Sass
@@ -58,8 +62,8 @@ gulp.task('css-libs', ['sass'], function() {
 
 gulp.task('watch', ['browser-sync', 'css-libs', 'scripts'], function() {
 	gulp.watch('app/sass/**/*.+(scss|sass)', ['sass']); // Наблюдение за sass файлами в папке sass
-	gulp.watch('app/*.html', browserSync.reload); // Наблюдение за HTML файлами в корне проекта
-	gulp.watch('app/templates/*.pug)', ['pug']); // Наблюдение за jade файлами в папке templates
+	gulp.watch('app/templates/**/*.pug', ['pug']); // Наблюдение за jade файлами в папке templates
+	gulp.watch('app/**/*.html', browserSync.reload); // Наблюдение за HTML файлами в корне проекта
 	gulp.watch('app/js/**/*.js', browserSync.reload);   // Наблюдение за JS файлами в папке js
 });
 
