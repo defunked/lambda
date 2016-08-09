@@ -3,26 +3,20 @@
 @import "_grid-settings.scss";
 @import "app/libs/neat/app/assets/stylesheets/_neat.scss";
 
-.wrapper {
-
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1600px;
-
-
+div {
+    background: #737373;
+    float: left;
+    position: relative;
+    width: 30%;
+    padding-bottom: 30%;
+    margin: 1.66%;
 }
-.container {
-    @include outer-container;
+div:hover {
+    background: black;
 }
-
-.text-block {
-  @include span-columns(6);
-  @include shift(6);
-  position: relative;
-  top: -662px;
-  height: 557px;
-  color: white;
-  // background-color: aquamarine;
-  background-image: url('../img/ingredients__text-block--background.png');
-  background-repeat: no-repeat;
+img {
+    position: absolute;
+    top: 0;
+    left: 0;
+  
 }
