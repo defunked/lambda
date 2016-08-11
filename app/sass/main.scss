@@ -3,25 +3,68 @@
 @import "_grid-settings.scss";
 @import "app/libs/neat/app/assets/stylesheets/_neat.scss";
 
-.ingredients {
-  background-image: url('../img/ingredients__background.jpg');
-  background-repeat: no-repeat;
-  max-width: 1600px;
-  height: 2000px;
-  //background-color: aquamarine;
-  margin-left: auto;
-  margin-right: auto;
+$h2_font: 'yesevaone-regular', sans;
+
+h2 {
+  font: normal em(36) $h2_font;
+  text-align: center;
 }
+
+h2:after {
+  content: '';
+  background-image: url('../img/ingredients__text-block--devider.png');
+  background-repeat: no-repeat;
+
+//============================================
+//============================================
+//============================================
+//============================================
+//============================================
+//============================================
+//============================================
+
+
+
+
+  text-align: center;
+  display: block;
+  height: 200px;
+  width: 200px;
+
+}
+
 .container {
   @include outer-container;
 }
 
-.ingredients article {
+.ingredients {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url('../img/ingredients__background.jpg');
+  max-width: em(1600);
+  height: em(758);
+}
+
+.ingredients__text-block {
   @include span-columns(6);
   @include shift(6);
   background-image: url('../img/ingredients__text-block--background.png');
-  position: relative;
-  top: em(100);
-  right: 0;
-  height: em(567);
+  height: em(557);
+  color: white;
 }
+
+
+
+//.table-wrapper {
+//  display: table;
+//  width: 100%;
+//}
+//
+//.table-cell-wrapper {
+//  display: table-cell;
+//  vertical-align: middle;
+//  height: em(557);
+//  border: 1px solid red;
+//}

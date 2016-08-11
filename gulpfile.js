@@ -12,12 +12,15 @@ var gulp       	= require('gulp'), // Подключаем Gulp
 	cache        	= require('gulp-cache'), // Подключаем библиотеку кеширования
 	autoprefixer 	= require('gulp-autoprefixer'),// Подключаем библиотеку для автоматического добавления префиксов
 	cssfont64			= require('gulp-cssfont64'), // Encode base64 data from font-files and store the result in a css file
+	//ignore				= require('gulp-ignore'), //Include or exclude gulp files from the stream based on a condition
 	reload				= browserSync.reload;
 
 // var path = {
 // 	  jade: 'app/jade/**/*.jade',
 // 	  html: 'app/*.html'
 // 	};
+
+
 
 gulp.task('pug', function() {
   return gulp.src('app/pug/**/*.pug')
@@ -54,7 +57,16 @@ gulp.task('browser-sync', function() { // Создаем таск browser-sync
 
 gulp.task('scripts', function() {
 	return gulp.src([ // Берем все необходимые библиотеки
-		// 'app/libs/jquery/dist/jquery.min.js', // Берем jQuery
+		'app/js/*.js'
+	])
+		.pipe(concat('libs.min.js')) // Собираем их в кучу в новом файле libs.min.js
+		.pipe(uglify()) // Сжимаем JS файл
+		.pipe(gulp.dest('app/js')); // Выгружаем в папку app/js
+});
+
+gulp.task('scripts-watch', function() {
+	return gulp.src([ // Берем все необходимые библиотеки
+		'app/js/*.js', '!app/js/libs.min.js' // Берем jQuery
 		// 'app/libs/magnific-popup/dist/jquery.magnific-popup.min.js' // Берем Magnific Popup
 		])
 		.pipe(concat('libs.min.js')) // Собираем их в кучу в новом файле libs.min.js
@@ -76,7 +88,7 @@ gulp.task('watch', ['fontsConvert', 'pug', 'browser-sync', 'css-libs', 'scripts'
 	gulp.watch('app/sass/**/*.+(scss|sass)', ['sass']); // Наблюдение за sass файлами в папке sass
 	gulp.watch('app/pug/**/*.+(pug|jade)', ['pug-watch']); // Наблюдение за pug/jade файлами в папке pug
 	gulp.watch('app/**/*.html', reload); // Наблюдение за HTML файлами в корне проекта
-	gulp.watch('app/js/**/*.js', reload);   // Наблюдение за JS файлами в папке js
+	gulp.watch('app/js/**/*.js', ['scripts-watch']);   // Наблюдение за JS файлами в папке js
 });
 
 gulp.task('clean', function() {

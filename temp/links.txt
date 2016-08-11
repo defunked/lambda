@@ -21,3 +21,7 @@ http://glivera-team.github.io/fonts/2016/03/02/fonts.html
 
 Джедай верстки №2 ЛП
 http://webdesign-master.ru/blog/adaptive-web-design/17.html
+
+Шпаргалка по flex-box
+http://css-live.ru/articles-css/shpargalka-po-shpargalke-po-flexbox.html
+http://frontender.info/a-guide-to-flexbox/
