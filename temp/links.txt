@@ -6,6 +6,7 @@ https://canonium.com/articles/pug-incremental-compiling
 
 Шпаргалка по Git
 https://github.com/nicothin/web-development/tree/master/git
+https://medium.com/@ABatickaya/%D1%88%D0%BF%D0%B0%D1%80%D0%B3%D0%B0%D0%BB%D0%BA%D0%B0-%D0%BF%D0%BE-git-55eeea487676#.mu5v3lm0g
 
 Сайт Николая Громова (автор видео по Фотошоп для Html Academy)
 http://nicothin.pro/
@@ -19,9 +20,48 @@ https://toster.ru/q/342078
 загрузка шрифта
 http://glivera-team.github.io/fonts/2016/03/02/fonts.html
 
+Font Generator
+https://www.fontsquirrel.com/tools/webfont-generator
+
 Джедай верстки №2 ЛП
 http://webdesign-master.ru/blog/adaptive-web-design/17.html
 
 Шпаргалка по flex-box
 http://css-live.ru/articles-css/shpargalka-po-shpargalke-po-flexbox.html
 http://frontender.info/a-guide-to-flexbox/
+
+HTML цвета
+https://ru.wikipedia.org/wiki/%D0%A6%D0%B2%D0%B5%D1%82%D0%B0_HTML
+
+Emmet
+http://docs.emmet.io/abbreviations/syntax/
+
+Gulp для новичков
+http://webdesign-master.ru/blog/tools/2016-03-09-gulp-beginners.html
+
+Правила синтаксиса gitignore
+http://webnotes.by/docs/raznoe/pravila-sintaksisa-fayla-gitignore
+
+Windows console
+http://nicothin.pro/page/console-windows
+
+Позиционрование HTML CSS
+https://webref.ru/layout/learn-html-css/positioning-content
+
+makewebme youtube
+https://www.youtube.com/channel/UCt36CWL85NGtOgUMZ2X6x5g/videos
+
+ScrollMagic
+https://www.youtube.com/watch?v=PyJ5loyJnfE&feature=youtu.be&t=59s
+
+Pushing to remote
+https://help.github.com/articles/pushing-to-a-remote/
+
+Sass guidelines
+http://sass-guidelin.es/ru/#section-48
+
+Сравнение Grunt и Gulp
+http://frontender.info/no-need-to-grunt-take-a-gulp-of-fresh-air/
+
+Туториал по Jade
+https://habrahabr.ru/post/278109/

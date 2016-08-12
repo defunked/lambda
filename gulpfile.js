@@ -12,13 +12,7 @@ var gulp       	= require('gulp'), // Подключаем Gulp
 	cache        	= require('gulp-cache'), // Подключаем библиотеку кеширования
 	autoprefixer 	= require('gulp-autoprefixer'),// Подключаем библиотеку для автоматического добавления префиксов
 	cssfont64			= require('gulp-cssfont64'), // Encode base64 data from font-files and store the result in a css file
-	//ignore				= require('gulp-ignore'), //Include or exclude gulp files from the stream based on a condition
 	reload				= browserSync.reload;
-
-// var path = {
-// 	  jade: 'app/jade/**/*.jade',
-// 	  html: 'app/*.html'
-// 	};
 
 gulp.task('pug', function() {
   return gulp.src('app/pug/**/*.pug')
@@ -62,15 +56,15 @@ gulp.task('scripts', function() {
 		.pipe(gulp.dest('app/js')); // Выгружаем в папку app/js
 });
 
-gulp.task('scripts-watch', function() {
-	return gulp.src([ // Берем все необходимые библиотеки
-		'app/js/*.js', '!app/js/libs.min.js' // Берем jQuery
-		// 'app/libs/magnific-popup/dist/jquery.magnific-popup.min.js' // Берем Magnific Popup
-		])
-		.pipe(concat('libs.min.js')) // Собираем их в кучу в новом файле libs.min.js
-		.pipe(uglify()) // Сжимаем JS файл
-		.pipe(gulp.dest('app/js')); // Выгружаем в папку app/js
-});
+// gulp.task('scripts-watch', function() {
+// 	return gulp.src([ // Берем все необходимые библиотеки
+// 		'app/js/*.js', '!app/js/libs.min.js' // Берем jQuery
+// 		// 'app/libs/magnific-popup/dist/jquery.magnific-popup.min.js' // Берем Magnific Popup
+// 		])
+// 		.pipe(concat('libs.min.js')) // Собираем их в кучу в новом файле libs.min.js
+// 		.pipe(uglify()) // Сжимаем JS файл
+// 		.pipe(gulp.dest('app/js')); // Выгружаем в папку app/js
+// });
 
 gulp.task('css-libs', ['sass'], function() {
 	return gulp.src('app/css/libs.css') // Выбираем файл для минификации
@@ -81,12 +75,12 @@ gulp.task('css-libs', ['sass'], function() {
 
 gulp.task('pug-watch', ['pug'], reload);
 
-gulp.task('watch', ['fontsConvert', 'pug', 'browser-sync', 'css-libs', 'scripts'], function() {
-	gulp.watch('app/fonts/**/*.+(woff|woff2)', ['fontsConvert']);
+gulp.task('watch', ['pug', 'browser-sync', 'css-libs', 'scripts'], function() {
+	// gulp.watch('app/fonts/**/*.+(woff|woff2)', ['fontsConvert']);
 	gulp.watch('app/sass/**/*.+(scss|sass)', ['sass']); // Наблюдение за sass файлами в папке sass
 	gulp.watch('app/pug/**/*.+(pug|jade)', ['pug-watch']); // Наблюдение за pug/jade файлами в папке pug
 	gulp.watch('app/**/*.html', reload); // Наблюдение за HTML файлами в корне проекта
-	gulp.watch('app/js/**/*.js', ['scripts-watch']);   // Наблюдение за JS файлами в папке js
+	gulp.watch('app/js/**/*.js', ['scripts']);   // Наблюдение за JS файлами в папке js
 });
 
 gulp.task('clean', function() {
@@ -112,8 +106,8 @@ gulp.task('build', ['clean', 'img', 'sass', 'pug', 'scripts'], function() {
 		])
 	.pipe(gulp.dest('dist/css'))
 
-	var buildFonts = gulp.src('app/fonts/*.css') // Переносим шрифты в продакшен
-	.pipe(gulp.dest('dist/fonts'))
+	// var buildFonts = gulp.src('app/fonts/*.css') // Переносим шрифты в продакшен
+	// .pipe(gulp.dest('dist/fonts'))
 
 	var buildJs = gulp.src('app/js/**/*') // Переносим скрипты в продакшен
 	.pipe(gulp.dest('dist/js'))
