@@ -20,8 +20,6 @@ var gulp       	= require('gulp'), // Подключаем Gulp
 // 	  html: 'app/*.html'
 // 	};
 
-
-
 gulp.task('pug', function() {
   return gulp.src('app/pug/**/*.pug')
     .pipe(pug({
@@ -51,7 +49,7 @@ gulp.task('browser-sync', function() { // Создаем таск browser-sync
  gulp.task('fontsConvert', function () {
    return gulp.src(['app/fonts/*.+(woff|woff2)'])
      .pipe(cssfont64())
-     .pipe(gulp.dest('app/css/'))
+     .pipe(gulp.dest('app/fonts'))
  		.pipe(browserSync.stream());
  });
 
@@ -84,7 +82,7 @@ gulp.task('css-libs', ['sass'], function() {
 gulp.task('pug-watch', ['pug'], reload);
 
 gulp.task('watch', ['fontsConvert', 'pug', 'browser-sync', 'css-libs', 'scripts'], function() {
-	gulp.watch('app/fonts/**/*', ['fontsConvert']);
+	gulp.watch('app/fonts/**/*.+(woff|woff2)', ['fontsConvert']);
 	gulp.watch('app/sass/**/*.+(scss|sass)', ['sass']); // Наблюдение за sass файлами в папке sass
 	gulp.watch('app/pug/**/*.+(pug|jade)', ['pug-watch']); // Наблюдение за pug/jade файлами в папке pug
 	gulp.watch('app/**/*.html', reload); // Наблюдение за HTML файлами в корне проекта
@@ -114,8 +112,8 @@ gulp.task('build', ['clean', 'img', 'sass', 'pug', 'scripts'], function() {
 		])
 	.pipe(gulp.dest('dist/css'))
 
-	// var buildFonts = gulp.src('app/fonts/**/*') // Переносим шрифты в продакшен
-	// .pipe(gulp.dest('dist/fonts'))
+	var buildFonts = gulp.src('app/fonts/*.css') // Переносим шрифты в продакшен
+	.pipe(gulp.dest('dist/fonts'))
 
 	var buildJs = gulp.src('app/js/**/*') // Переносим скрипты в продакшен
 	.pipe(gulp.dest('dist/js'))

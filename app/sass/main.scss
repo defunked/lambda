@@ -4,33 +4,24 @@
 @import "app/libs/neat/app/assets/stylesheets/_neat.scss";
 
 $h2_font: 'yesevaone-regular', sans;
+$text-block_font: 'lato-regular', serif;
 
 h2 {
-  font: normal em(36) $h2_font;
+  font: normal 36px $h2_font;
   text-align: center;
+  margin-top: 75px;
+  margin-bottom: 0px;
 }
 
 h2:after {
   content: '';
   background-image: url('../img/ingredients__text-block--devider.png');
   background-repeat: no-repeat;
-
-//============================================
-//============================================
-//============================================
-//============================================
-//============================================
-//============================================
-//============================================
-
-
-
-
-  text-align: center;
   display: block;
-  height: 200px;
-  width: 200px;
-
+  margin: 0 auto;
+  margin-top: 13px;
+  height: 24px;
+  width: 247px;
 }
 
 .container {
@@ -43,28 +34,44 @@ h2:after {
   margin-left: auto;
   margin-right: auto;
   background-image: url('../img/ingredients__background.jpg');
-  max-width: em(1600);
-  height: em(758);
+  max-width: 1600px  ;
+  height: 758px;
 }
 
 .ingredients__text-block {
   @include span-columns(6);
   @include shift(6);
   background-image: url('../img/ingredients__text-block--background.png');
-  height: em(557);
+  height: 557px;
   color: white;
 }
 
+.ingredients__text-block p {
+  font: normal 16px $text-block_font;
+  text-align: center;
+  padding: 0 75px;
+  margin: 0 auto;
+  margin-top: 24px;
+  line-height: 24px;
+  margin-bottom: 0px;
+}
 
+.ingredients__images {
+  display: flex;
+  // border: 1px solid white;
+  width: 430px;
+  margin: 0 auto;
+  margin-top: 67px;
+  justify-content: space-around;
+}
 
-//.table-wrapper {
-//  display: table;
-//  width: 100%;
-//}
-//
-//.table-cell-wrapper {
-//  display: table-cell;
-//  vertical-align: middle;
-//  height: em(557);
-//  border: 1px solid red;
-//}
+.ingredients__images img {
+  border: 5px solid hsla(0,100%,100%,0.09);
+  transition-duration: 3s;
+  border-radius: 50%;
+}
+
+.ingredients__images img:hover {
+  border: 5px solid hsla(0,100%,100%,0.7);
+  transition-duration: 0.2s;
+}

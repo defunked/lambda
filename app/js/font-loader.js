@@ -31,4 +31,9 @@ function loadFont(a, b, c, d) {
     }
 }
 
-loadFont('yesevaone-regular', '../css/yesevaone-regular.css');
+loadFont('yesevaone-regular', '../fonts/yesevaone-regular.css');
+loadFont('lato-regular', '../fonts/lato-regular.css');
+loadFont('gentium-book-basic-bold', '../fonts/gentium-book-basic-bold.css');
+loadFont('opensans-bold', '../fonts/opensans-bold.css');
+loadFont('opensans-italic', '../fonts/opensans-italic.css');
+loadFont('opensans-regular', '../fonts/opensans-regular.css');
