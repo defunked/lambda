@@ -65,3 +65,15 @@ http://frontender.info/no-need-to-grunt-take-a-gulp-of-fresh-air/
 
 Туториал по Jade
 https://habrahabr.ru/post/278109/
+
+Разработчик должен быть в теме всего.
+https://habrahabr.ru/post/306716/
+
+Структура проекта по БЭМ для верстальщика
+https://ru.bem.info/forum/1098/
+
+https://ru.bem.info/methodology/filesystem/
+Организация файловой системы (БЭМ)
+
+Сетка на БЭМ Sharps
+https://github.com/theprotein/sharps
