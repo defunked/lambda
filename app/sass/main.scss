@@ -80,6 +80,14 @@ $text__font_reviews: 'gentium-book-basic-bold', sans;
   background-image: url('../img/text-block_ingredients_background.png');
 }
 
+.text-block_menu {
+  @include span-columns(6);
+  @include shift(0);
+  background-color: aquamarine;
+  height: auto;
+
+}
+
 .text-block_reviews {
   @include span-columns(8);
   @include shift(2);
@@ -146,6 +154,15 @@ $text__font_reviews: 'gentium-book-basic-bold', sans;
   line-height: 45px;
   margin-bottom: 0px;
 }
+
+.text-block__text_ingredients {
+  margin: 0 auto;
+  margin-top: 24px;
+  line-height: 24px;
+  margin-bottom: 0px;
+}
+
+
 
 .text-block__text_about {
   color: #4c4c4c;

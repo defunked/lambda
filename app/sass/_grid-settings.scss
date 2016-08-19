@@ -1,6 +1,6 @@
 @import "app/libs/neat/app/assets/stylesheets/_neat-helpers.scss";
 
-$visual-grid: false;
+$visual-grid: true;
 
 /// Sets the visual grid color. Set with `!global` flag.
 ///
@@ -18,7 +18,7 @@ $visual-grid-index: front;
 ///
 /// @type Number (unitless)
 
-$visual-grid-opacity: 0.2;
+$visual-grid-opacity: 0.1;
 
 ///$tablet: new-breakpoint(min-width 768px max-width 1024px 4);
 
