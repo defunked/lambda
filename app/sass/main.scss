@@ -68,17 +68,18 @@ $text__font_reviews: 'gentium-book-basic-bold', sans;
   box-sizing: border-box;
   width: $max-width;
   flex-direction: row;
+  justify-content: center;
   align-items: stretch;
   margin: 100px 0 101px 0;
+  //border: 1px solid red;
 
 }
 
 .container_col {
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  overflow: hidden;
-
+  align-content: space-between;
 }
 
 
@@ -113,17 +114,15 @@ $text__font_reviews: 'gentium-book-basic-bold', sans;
 
 .col_menu {
 
-  border: 1px solid green;
+  border: 1px solid blue;
   padding: 0;
-
-
 }
 
 .col__header {
   font: normal 36px $header__font;
   // width: 100%;
   margin: 0 auto;
-  // margin-bottom: 45px;
+  margin-bottom: 16px;
   text-align: center;
   // margin-top: 75px;
   color: white;
@@ -152,7 +151,7 @@ $text__font_reviews: 'gentium-book-basic-bold', sans;
 .col__text {
   font: normal 16px $text__font;
   text-align: center;
-  margin: 20px 0 25px 0;
+  margin: 0;
   line-height: 24px;
   color: white;
 }
@@ -160,7 +159,9 @@ $text__font_reviews: 'gentium-book-basic-bold', sans;
 .col__text_reviews {
   font: normal 25px $text__font_reviews;
   // margin-top: 20px;
-  line-height: 46px;
+  line-height: 45px;
+  margin-bottom: 32px;
+
 }
 
 .col__text_ingredients {
@@ -206,4 +207,25 @@ $text__font_reviews: 'gentium-book-basic-bold', sans;
 
 .col_img {
   padding: 0;
+}
+
+.col__menu-item {
+  margin-top: 22px;
+  padding: 0 $column-px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: justify;
+}
+
+.col__dish-name,
+.col__dish-cost {
+  display: inline;
+  font: normal 24px $header__font;
+  align-self: space-between;
+  border: 1px solid green;
+}
+
+.col__dish-info {
+  border: 1px solid red;
 }

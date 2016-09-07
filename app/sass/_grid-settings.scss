@@ -1,13 +1,13 @@
 //ввод исходных данных по сетке в px
 
 $grid-columns: 12;
-$column: 70px;
+$column-px: 70px;
 $gutter: 30px;
-$max-width: ($grid-columns * $column)+(($grid-columns - 1) * $gutter);
+$max-width: ($grid-columns * $column-px)+(($grid-columns - 1) * $gutter);
 
 //пересчёт в проценты:
 
-$column: ($column / $max-width) * 100%;
+$column: ($column-px / $max-width) * 100%;
 $gutter: ($gutter / $max-width) * 100%;
 
 .col {
