@@ -1,76 +1,42 @@
-@import "app/libs/neat/app/assets/stylesheets/_neat-helpers.scss";
-
-$visual-grid: true;
-
-/// Sets the visual grid color. Set with `!global` flag.
-///
-/// @type Color
-
-$visual-grid-color: tomato;
-
-/// Sets the `z-index` property of the visual grid. Can be `back` (behind content) or `front` (in front of content). Set with `!global` flag.
-///
-/// @type String
-
-$visual-grid-index: front;
-
-/// Sets the opacity property of the visual grid. Set with `!global` flag.
-///
-/// @type Number (unitless)
-
-$visual-grid-opacity: 0.1;
-
-///$tablet: new-breakpoint(min-width 768px max-width 1024px 4);
-
-
-@charset "UTF-8";
-
-/// Sets the relative width of a single grid column. The unit used should be the same one used to define `$gutter`. Set with a `!global` flag.
-///
-/// @type Number (Unit)
-
-$column: em(70);
-
-/// Sets the relative width of a single grid gutter. The unit used should be the same one used to define `$column`. Set with the `!global` flag.
-///
-/// @type Number (Unit)
-
-$gutter: em(30);
-
-/// Sets the total number of columns in the grid. Its value can be overridden inside a media query using the `media()` mixin. Set with the `!global` flag.
-///
-/// @type Number (Unitless)
+//ввод исходных данных по сетке в px
 
 $grid-columns: 12;
+$column: 70px;
+$gutter: 30px;
+$max-width: ($grid-columns * $column)+(($grid-columns - 1) * $gutter);
 
-/// Sets the max-width property of the element that includes `outer-container()`. Set with the `!global` flag.
-///
-/// @type Number (Unit)
-///
-$max-width: 1170px;
+//пересчёт в проценты:
 
-/// When set to true, it sets the box-sizing property of all elements to `border-box`. Set with a `!global` flag.
-///
-/// @type Bool
-///
-/// @example css - CSS Output
-///   html {
-///     box-sizing: border-box; }
-///
-///   *, *::after, *::before {
-///     box-sizing: inherit;
-///   }
+$column: ($column / $max-width) * 100%;
+$gutter: ($gutter / $max-width) * 100%;
 
-$border-box-sizing: true !default;
+.col {
+  box-sizing: border-box;
+  // display: flex;
+  // flex-direction: column;
+  // height: auto;
+  // width: 100%;
+  padding: 75px $column;
+}
 
-/// Sets the default [media feature](http://www.w3.org/TR/css3-mediaqueries/#media) that `media()` and `new-breakpoint()` revert to when only a breakpoint value is passed. Set with a `!global` flag.
-///
-/// @type String
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    width: ($column * $i) + ($gutter * ($i - 1));
+  }
+}
 
-$default-feature: min-width; // Default @media feature for the breakpoint() mixin
+@for $i from 1 through ($grid-columns - 1) {
+  .offset-col-#{$i} {
+    margin-left: ($column + $gutter) * $i;
+  }
+}
 
-///Sets the default layout direction of the grid. Can be `LTR` or `RTL`. Set with a `!global` flag.
-///
-///@type String
-
-$default-layout-direction: LTR !default;
+// .red-text {
+//   color: red;
+// }
+//
+// @for $i from 1 through $grid-columns {
+//   .col-#{$i} {
+//   @extend .red-text;
+//   }
+// }
