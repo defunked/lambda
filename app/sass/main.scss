@@ -211,21 +211,26 @@ $text__font_reviews: 'gentium-book-basic-bold', sans;
 
 .col__menu-item {
   margin-top: 22px;
-  padding: 0 $column-px;
+  // padding: 0 $column-px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-content: justify;
+  border: 1px solid pink;
+  justify-content: flex-start;
+  height: 300px;
+  // align-content: center;
 }
 
 .col__dish-name,
 .col__dish-cost {
-  display: inline;
+  display: block;
+  // width: auto;
   font: normal 24px $header__font;
-  align-self: space-between;
+  // align-self: space-between;
   border: 1px solid green;
 }
 
 .col__dish-info {
   border: 1px solid red;
+  width: 100px;
+  margin: 0;
 }
